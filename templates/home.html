@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+  <style>
+    input {
+      width: 500px;
+    }
+  </style>
+{% endblock %}
+
+
+{% block content %}
+
+  <h1>Do some queries!</h1>
+
+  <form action="{{ url_for('.objinfo') }}">
+    <label>
+      Object info:
+      <input name="s" placeholder="uri" autofocus>
+    </label>
+    <button type="submit">go</button>
+  </form>
+
+  <p><a href="{{ url_for('.query') }}">SPARQL</a></p>
+
+  <p><a href="{{ url_for('.search') }}">Search</a></p>
+
+{% endblock %}

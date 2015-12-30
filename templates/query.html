@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+  <a href="{{ url_for('.home') }}">&laquo; home</a>
+
+  <h3>SPARQL query</h3>
+
+  <form class="form-query">
+    <textarea name="query">{{ query or '' }}</textarea>
+    <br>
+    <button type="submit">execute</button>
+  </form>
+
+  {% if error %}
+    <p class="sparql-error">{{ error }}</p>
+  {% elif rows %}
+    {%- from 'bits.html' import results_tabe %}
+    {{ results_tabe(rows) }}
+  {% endif %}
+
+{% endblock %}

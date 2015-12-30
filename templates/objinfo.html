@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+  {%- from 'bits.html' import rdfterm %}
+
+  <a href="{{ url_for('.home') }}">&laquo; home</a>
+
+  <h3>{{ subject }}</h3>
+
+  <table class="table-rdf">
+
+    <thead>
+      <th>predicate</th>
+      <th>object</th>
+    </thead>
+
+    <tbody>
+    {% for p, o in rows %}
+      <tr>
+        <td>{{ rdfterm(p) }}</td>
+        <td>{{ rdfterm(o) }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+
+  </table>
+
+{% endblock %}

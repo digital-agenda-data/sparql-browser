@@ -1,0 +1,7 @@
+SELECT DISTINCT * WHERE {
+
+  {{ subject.n3() }} ?p ?o .
+
+}
+
+LIMIT 1000
